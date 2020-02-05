@@ -12,23 +12,23 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class MetroMapParser {
-    private MultiGraphADT graph;
+    private MultiGraphADT<Station, Line> graph;
 
     public MetroMapParser() {
-        graph = new MultiGraphADT();
+        graph = new MultiGraphADT<>();
     }
     public void addStation(Station station) {
         graph.addNode(station);
     }
 
     public void addLine(Line line) {
-        INode start = graph.findNode(x -> x.getId().equals(line.startId));
-        INode end = graph.findNode(x -> x.getId().equals(line.endId));
+        Station start = graph.findNode(x -> x.getId().equals(line.startId));
+        Station end = graph.findNode(x -> x.getId().equals(line.endId));
 
         graph.addEdge(start, end, line);
     }
 
-    public MultiGraphADT generateGraphFromFile(String filename)
+    public MultiGraphADT<Station, Line> generateGraphFromFile(String filename)
             throws IOException, BadFileException {
         BufferedReader fileInput = new BufferedReader(new FileReader(filename));
         String line = fileInput.readLine();

@@ -10,6 +10,7 @@ public class Line implements IEdge {
     public String lineName;
     public Integer startId;
     public Integer endId;
+    public Integer weight;
 
     public Line(String lineName, Integer startId, Integer endId) {
         this.lineName = lineName;
@@ -34,5 +35,10 @@ public class Line implements IEdge {
         start = from;
         end = to;
         start.addEdge(this);
+    }
+
+    @Override
+    public Integer getWeight() {
+        return weight;
     }
 }
