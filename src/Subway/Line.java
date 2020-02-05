@@ -15,7 +15,8 @@ public class Line implements IEdge {
     public Line(String lineName, Integer startId, Integer endId) {
         this.lineName = lineName;
         this.startId = startId;
-        this. endId = endId;
+        this.endId = endId;
+        weight = 1;
     }
 
     public Line() {}
