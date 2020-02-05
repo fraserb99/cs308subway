@@ -1,8 +1,12 @@
 package Subway;
 
-import MultiGraph.Edge;
+import MultiGraph.IEdge;
+import MultiGraph.INode;
 
-public class Line extends Edge {
+public class Line implements IEdge {
+    private INode start;
+    private INode end;
+
     public String lineName;
     public Integer startId;
     public Integer endId;
@@ -14,4 +18,21 @@ public class Line extends Edge {
     }
 
     public Line() {}
+
+    @Override
+    public INode getStart() {
+        return start;
+    }
+
+    @Override
+    public INode getEnd() {
+        return end;
+    }
+
+    @Override
+    public void connect(INode from, INode to) {
+        start = from;
+        end = to;
+        start.addEdge(this);
+    }
 }

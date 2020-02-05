@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.function.Predicate;
 
-public interface IGraph<TNode extends Node, TEdge extends Edge> {
+public interface IGraph {
     public boolean isEmpty();
     public Integer nodeCount();
     public Integer edgeCount();
-    public boolean hasEdge(TNode start, TNode end);
-    public void addNode(TNode Node);
-    public void addEdge(TNode start, TNode end, TEdge edge);
-    public Iterable<TNode> getNodes();
-    public Iterable<TEdge> getEdges();
-    public void removeNode(TNode node);
-    public void removeEdge(TEdge edge);
-    public TNode findNode(Predicate<? super TNode> predicate);
+    public boolean hasEdge(INode start, INode end);
+    public void addNode(INode Node);
+    public void addEdge(INode start, INode end, IEdge edge);
+    public Collection<INode> getNodes();
+    public Collection<IEdge> getEdges();
+    public INode findNode(Predicate<? super INode> predicate);
 }
